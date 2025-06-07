@@ -38,7 +38,7 @@ const Header = ({ currentStep = 2, rotation, toggleRotation }) => (
                 </span>
               </div>
               {index < steps.length - 1 && (
-                <span className="mx-2 h-0.5 w-6 bg-gray-600"></span>
+                <span className="mx-2 h-0.5 w-4  md:w-1 xl:w-20 2xl:w-38 sm:w-10 bg-gray-600"></span>
               )}
             </div>
           );
