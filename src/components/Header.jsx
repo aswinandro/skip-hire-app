@@ -33,7 +33,7 @@ const Header = ({ currentStep = 2, rotation, toggleRotation }) => (
             <div key={index} className="flex items-center space-x-2">
               <div className="flex items-center space-x-1">
                 <Icon className={`w-4 h-4 ${isActive || isCompleted ? 'text-blue-400' : 'text-gray-600'}`} />
-                <span className={`${isActive ? 'text-blue-400' : 'text-gray-400'}`}>
+                <span className={`hidden md:inline ${isActive ? 'text-blue-400' : 'text-gray-400'}`}>
                   {step.label}
                 </span>
               </div>
@@ -47,7 +47,7 @@ const Header = ({ currentStep = 2, rotation, toggleRotation }) => (
 
       {/* Subtitle and Rotate toggle aligned in same row */}
       <div className="flex items-center justify-between mt-2">
-        <p className="text-gray-400 text-sm">Premium Skip Hire with Interactive 3D Visualization</p>
+        <p className="text-gray-400 text-sm">Premium Skip Hire - 3D Visualization</p>
         <button
           onClick={toggleRotation}
           className="p-1 rounded-md hover:bg-gray-800 transition"

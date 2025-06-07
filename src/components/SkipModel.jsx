@@ -44,12 +44,12 @@ const SkipModel = ({ size, rotationEnabled }) => {
     ]);
 
     const indices = [
-      0,1,2, 0,2,3,
-      0,4,5, 0,5,1,
-      1,5,6, 1,6,2,
-      2,6,7, 2,7,3,
-      3,7,4, 3,4,0,
-      4,7,6, 4,6,5
+      0,1,2, 0,2,3,          // Bottom
+      0,4,5, 0,5,1,          // Front
+      1,5,6, 1,6,2,          // Right
+      2,6,7, 2,7,3,          // Back
+      3,7,4, 3,4,0,          // Left
+      4,7,6, 4,6,5           // Top
     ];
 
     geom.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
@@ -58,9 +58,14 @@ const SkipModel = ({ size, rotationEnabled }) => {
     return geom;
   }, [width, height, depth]);
 
+  // ✅ Adjusted inner cavity to avoid Z-fighting from below
   const cavityGeometry = useMemo(() => {
-    const geom = new THREE.BoxGeometry(width * 0.65, height * 0.9, depth * 0.85);
-    geom.translate(0, height * 0.45, 0);
+    const geom = new THREE.BoxGeometry(
+      width * 0.64,
+      height * 0.89,
+      depth * 0.84
+    );
+    geom.translate(0, height * 0.445, 0); // Lifted slightly
     return geom;
   }, [width, height, depth]);
 
@@ -73,27 +78,30 @@ const SkipModel = ({ size, rotationEnabled }) => {
 
   return (
     <group ref={groupRef}>
-      {/* Outer Bin */}
+      {/* Outer Skip Body */}
       <mesh geometry={outerGeometry} castShadow receiveShadow>
         <meshStandardMaterial
-          color="#FFEA00" // Yellow body
+          color="#FFEA00"
           metalness={0.3}
           roughness={0.6}
           side={THREE.DoubleSide}
         />
       </mesh>
 
-      {/* Inner cavity */}
-      <mesh geometry={cavityGeometry} position={[0, 0, 0]}>
+      {/* ✅ Inner Cavity with Z-fighting fix */}
+      <mesh geometry={cavityGeometry} position={[0, 0.002, 0]}>
         <meshStandardMaterial
           color="#222222"
           metalness={0.05}
           roughness={0.9}
           side={THREE.FrontSide}
+          polygonOffset
+          polygonOffsetFactor={-1}
+          polygonOffsetUnits={-4}
         />
       </mesh>
 
-      {/* Rim bars */}
+      {/* Rim Bars */}
       {rimBars.map(([x, y, z, args], i) => (
         <mesh key={i} position={[x, y, z]} castShadow receiveShadow>
           <boxGeometry args={args} />
@@ -101,17 +109,15 @@ const SkipModel = ({ size, rotationEnabled }) => {
         </mesh>
       ))}
 
-      {/* Scale ticks and labels on top surface along width (x axis) */}
+      {/* Width scale ticks with labels */}
       {Array.from({ length: Math.floor(width * 4) + 1 }).map((_, i) => {
-        const x = -width / 2 + i * 0.25; // Every 0.25m
+        const x = -width / 2 + i * 0.25;
         return (
           <group key={i} position={[x, height + 0.05, 0]}>
-            {/* Tick mark */}
             <mesh>
               <boxGeometry args={[0.01, 0.02, 0.05]} />
               <meshStandardMaterial color="#CCCCCC" />
             </mesh>
-            {/* Label */}
             <Text
               position={[0, 0.035, 0]}
               fontSize={0.07}
@@ -125,14 +131,13 @@ const SkipModel = ({ size, rotationEnabled }) => {
         );
       })}
 
-      {/* Size label on top center */}
+      {/* Size Label */}
       <Text
         position={[0, height + 0.12, 0]}
         fontSize={0.3}
         color="#222222"
         anchorX="center"
         anchorY="bottom"
-        // font={"https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff"} // Optional custom font
         outlineWidth={0.01}
         outlineColor="#FFFFFF"
       >
