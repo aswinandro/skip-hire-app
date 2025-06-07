@@ -5,7 +5,7 @@ import SkipModel from './SkipModel';
 
 const SkipViewer = ({ selectedSkip, rotation }) => (
   <div className="w-full lg:w-2/3">
-    <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-2xl h-full max-h-[80vh] flex flex-col">
+    <div className="bg-gray-900 rounded-xl p-6 border border-gray-700 shadow-2xl h-full max-h-[80vh] flex flex-col">
       <h2 className="text-2xl font-bold mb-6 text-silver border-b border-gray-700 pb-3">
         Interactive 3D Preview
       </h2>

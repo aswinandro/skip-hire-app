@@ -6,8 +6,8 @@ const SkipCard = ({ skip, isSelected, onSelect }) => {
     <div 
       className={`p-4 rounded-lg cursor-pointer transition-all duration-300 ${
         isSelected 
-          ? 'bg-gradient-to-r from-gray-700 to-gray-800 border-l-4 border-green-500 shadow-lg' 
-          : 'bg-gray-900 hover:bg-gray-800'
+          ? 'bg-gradient-to-r from-gray-700 to-gray-900 border-l-4 border-green-500 shadow-lg' 
+          : 'bg-gray-900 hover:bg-gray-900'
       }`}
       onClick={onSelect}
     >

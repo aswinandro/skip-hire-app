@@ -48,7 +48,7 @@ function App() {
     <div className="min-h-screen bg-gray-900 text-silver">
       <Header rotation={rotation} toggleRotation={toggleRotation} />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto my-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-6 w-full">
           <SkipList
             skips={skips}
