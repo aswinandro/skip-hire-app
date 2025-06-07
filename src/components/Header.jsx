@@ -46,7 +46,7 @@ const Header = ({ currentStep = 2, rotation, toggleRotation }) => (
       </div>
 
       {/* Subtitle and Rotate toggle aligned in same row */}
-      <div className="flex items-center justify-between mt-2">
+      <div className="flex items-center justify-between mt-2 mb-2">
         <p className="text-gray-400 text-sm">Premium Skip Hire - 3D Visualization</p>
         <button
           onClick={toggleRotation}

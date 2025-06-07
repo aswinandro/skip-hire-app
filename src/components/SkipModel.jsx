@@ -139,9 +139,9 @@ const SkipModel = ({ size, rotationEnabled }) => {
         anchorX="center"
         anchorY="bottom"
         outlineWidth={0.01}
-        outlineColor="#FFFFFF"
+        outlineColor="#2196f3"
       >
-        {size} YD
+        {size} Yard
       </Text>
     </group>
   );

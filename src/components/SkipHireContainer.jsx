@@ -36,7 +36,7 @@ const SkipHireContainer = () => {
   return (
     <>
       <Header rotation={rotation} toggleRotation={toggleRotation} />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 ">
         <div className="flex flex-col lg:flex-row gap-6">
           <SkipViewer selectedSkip={selectedSkip} rotation={rotation} />
           <SkipList
