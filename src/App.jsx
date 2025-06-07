@@ -50,15 +50,16 @@ function App() {
 
       <div className="container mx-auto my-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-6 w-full">
+          <SkipViewer
+            selectedSkip={selectedSkip}
+            rotation={rotation}
+          />
           <SkipList
             skips={skips}
             selectedSkip={selectedSkip}
             handleSelectSkip={handleSelectSkip}
           />
-          <SkipViewer
-            selectedSkip={selectedSkip}
-            rotation={rotation}
-          />
+          
         </div>
       </div>
 

@@ -6,7 +6,7 @@ const Header = ({ rotation, toggleRotation }) => (
       <div className="flex flex-col md:flex-row justify-between items-center">
         <div>
           <h1 className="text-4xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-silver to-gray-400">
-            <span className="text-green-400">WE</span> WANT WASTE
+            <span className="text-blue-400">WE</span> WANT WASTE
           </h1>
           <p className="text-gray-400 mt-2">Premium Skip Hire with Interactive 3D Visualization</p>
         </div>
