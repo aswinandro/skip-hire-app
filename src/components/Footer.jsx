@@ -5,10 +5,10 @@ const Footer = () => (
     {/* Fixed Back and Continue Buttons Aligned with Content Column */}
     <div className="fixed bottom-4 left-0 right-0 z-50">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <button className="bg-gray-600 text-white text-sm md:text-base py-2 px-5 md:py-2.5 md:px-7 rounded-lg shadow hover:bg-gray-800 transition duration-200">
+        <button className="bg-gray-600 text-white text-sm md:text-base py-2 px-5 md:py-2.5 md:px-7 rounded-lg shadow hover:bg-gray-800 transition duration-200 hover:cursor-pointer">
           Back
         </button>
-        <button className="bg-blue-500 text-white font-semibold text-sm md:text-base py-2 px-5 md:py-2.5 md:px-7 rounded-lg shadow hover:bg-blue-600 transition duration-200">
+        <button className="bg-blue-500 text-white font-semibold text-sm md:text-base py-2 px-5 md:py-2.5 md:px-7 rounded-lg shadow hover:bg-blue-600 transition duration-200 hover:cursor-pointer">
           Continue
         </button>
       </div>

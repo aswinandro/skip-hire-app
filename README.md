@@ -25,6 +25,8 @@ A modern web application built with **React**, **TailwindCSS**, and **@react-thr
 
 - **Mobile Resposive for various Screen Sizes**  for a seamless visual experience.
 
+- **A Rotation Pause and Resume Button for interacting above available skip sizes**  for a seamless visual experience.
+
 - **All 3D geometry handcrafted using `BufferGeometry` and `BoxGeometry`.** The skip model simulates real-world structure with an open-top and internal cavity.
 
 - **SVG branding logos loaded using `SVGLoader`** and accurately mapped on skip sidewalls with scaling and centering.

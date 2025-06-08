@@ -7,7 +7,7 @@ const SkipViewer = ({ selectedSkip, rotation }) => (
   <div className="w-full lg:w-2/3">
     <div className="bg-gray-950 rounded-xl p-4 sm:p-2 border border-gray-700 shadow-2xl flex flex-col min-h-[80vh]">
       <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-2 text-silver border-b border-gray-700 pb-2">
-        Skip 3D Preview
+        Choose Skip Size
       </h3>
 
       {/* 3D Canvas Area with Responsive Full Height */}
