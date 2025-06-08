@@ -23,6 +23,8 @@ A modern web application built with **React**, **TailwindCSS**, and **@react-thr
 
 - **Designed based on the client’s existing TailwindCSS-based website.** I matched their branding, layout style, and color scheme for a seamless visual experience.
 
+- **Mobile Resposive for various Screen Sizes**  for a seamless visual experience.
+
 - **All 3D geometry handcrafted using `BufferGeometry` and `BoxGeometry`.** The skip model simulates real-world structure with an open-top and internal cavity.
 
 - **SVG branding logos loaded using `SVGLoader`** and accurately mapped on skip sidewalls with scaling and centering.
