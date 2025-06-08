@@ -3,7 +3,7 @@ import React from 'react';
 
 const LoadingSpinner = () => {
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-r from-gray-950 via-stone-800 to-gray-950 flex items-center justify-center">
       <div className="text-center">
         <div className="relative">
           <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin mx-auto"></div>

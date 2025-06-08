@@ -5,15 +5,15 @@ import SkipModel from './SkipModel';
 
 const SkipViewer = ({ selectedSkip, rotation }) => (
   <div className="w-full lg:w-2/3">
-    <div className="bg-gray-900 rounded-xl p-4 sm:p-2 border border-gray-700 shadow-2xl h-full max-h-[80vh] flex flex-col">
-      <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-2 text-silver border-b border-gray-700 pb-2 ">
+    <div className="bg-gray-950 rounded-xl p-4 sm:p-2 border border-gray-700 shadow-2xl flex flex-col min-h-[80vh]">
+      <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-2 text-silver border-b border-gray-700 pb-2">
         Skip 3D Preview
       </h3>
 
-      {/* 3D Canvas */}
-      <div className="flex-grow overflow-hidden rounded-lg border border-gray-700">
+      {/* 3D Canvas Area with Responsive Full Height */}
+      <div className="relative flex-1 min-h-[320px] sm:min-h-[400px] rounded-lg border border-gray-700 overflow-hidden">
         {selectedSkip ? (
-          <div className="h-full relative">
+          <div className="absolute inset-0">
             <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
               <ambientLight intensity={0.5} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
@@ -29,7 +29,9 @@ const SkipViewer = ({ selectedSkip, rotation }) => (
               />
             </Canvas>
             <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-gray-900 bg-opacity-80 px-3 py-1 sm:px-4 sm:py-2 rounded-lg">
-              <p className="text-silver text-xs sm:text-sm font-bold">Current: {selectedSkip.size} Yard Skip</p>
+              <p className="text-silver text-xs sm:text-sm ">
+                Selected: {selectedSkip.size} Yard Skip - May not reflect Exact Shape and Size
+              </p>
             </div>
           </div>
         ) : (
@@ -39,7 +41,7 @@ const SkipViewer = ({ selectedSkip, rotation }) => (
         )}
       </div>
 
-      {/* Compact Skip Details */}
+      {/* Skip Details */}
       {selectedSkip && (
         <div className="mt-4 sm:mt-6 grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 overflow-y-auto max-h-[25vh] sm:max-h-[30vh]">
           <div className="bg-gray-900 p-3 sm:p-4 rounded-lg border border-gray-700 text-sm">
@@ -83,8 +85,8 @@ const RestrictionRow = ({ label, value }) => (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
       </svg>
     )}
-    <span className={value ? "text-green-400" : "text-red-400"}>
-      {label}: {value ? "Yes" : "No"}
+    <span className={value ? 'text-green-400' : 'text-red-400'}>
+      {label}: {value ? 'Yes' : 'No'}
     </span>
   </div>
 );

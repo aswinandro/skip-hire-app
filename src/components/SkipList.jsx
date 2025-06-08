@@ -35,8 +35,7 @@ const SkipList = ({ skips, selectedSkip, handleSelectSkip }) => {
         {/* Skip List */}
         <div
           ref={scrollRef}
-          className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto pr-1 scroll-smooth
-    scrollbar-none sm:scrollbar-thin sm:scrollbar-thumb-gray-600 sm:scrollbar-track-gray-700"
+          className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto pr-1 scroll-smooth scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
         >
           {skips.map((skip) => (
             <div

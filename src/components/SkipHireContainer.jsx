@@ -34,10 +34,10 @@ const SkipHireContainer = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <>
+    <div className='bg-gray-950'>
       <Header rotation={rotation} toggleRotation={toggleRotation} />
       <main className="container mx-auto px-4 ">
-        <div className="flex flex-col lg:flex-row gap-6">
+        <div className="flex flex-col lg:flex-row gap-6 lg:h-[calc(100vh-160px)]">
           <SkipViewer selectedSkip={selectedSkip} rotation={rotation} />
           <SkipList
             skips={skips}
@@ -45,9 +45,10 @@ const SkipHireContainer = () => {
             handleSelectSkip={handleSelectSkip}
           />
         </div>
+              <Footer />
       </main>
-      <Footer />
-    </>
+
+    </div>
   );
 };
 
