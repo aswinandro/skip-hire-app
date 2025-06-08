@@ -50,12 +50,11 @@ const SkipModel = ({ size, rotationEnabled }) => {
     ]);
 
     const indices = [
-      0,1,2, 0,2,3,
-      0,4,5, 0,5,1,
-      1,5,6, 1,6,2,
-      2,6,7, 2,7,3,
-      3,7,4, 3,4,0,
-      4,7,6, 4,6,5
+      0, 1, 2, 0, 2, 3,
+      0, 4, 5, 0, 5, 1,
+      1, 5, 6, 1, 6, 2,
+      2, 6, 7, 2, 7, 3,
+      3, 7, 4, 3, 4, 0
     ];
 
     geom.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
@@ -96,15 +95,20 @@ const SkipModel = ({ size, rotationEnabled }) => {
     }
   }, [svgData]);
 
-  // === STICKER PLACEMENT ===
   const stickerOffsetX = 0.011;
-  const stickerScale = Math.min(height * 0.3, 0.5); // sticker height max 30% of side
-  const scaleFactor = stickerScale / 100; // scale down SVG assuming 100 unit height
-  const stickerY = height / 2; // vertically centered
+  const stickerScale = Math.min(height * 0.3, 0.5);
+  const scaleFactor = stickerScale / 100;
+  const stickerY = height / 2;
 
   return (
-    <group ref={groupRef}>
-      {/* Outer Body */}
+    <group
+      ref={groupRef}
+      // Prevent dragging/picking by blocking pointer events
+      onPointerDown={(e) => e.stopPropagation()}
+      onPointerMove={(e) => e.stopPropagation()}
+      onPointerUp={(e) => e.stopPropagation()}
+    >
+      {/* Outer Shell */}
       <mesh geometry={outerGeometry} castShadow receiveShadow>
         <meshStandardMaterial
           color="#FFEA00"
@@ -135,7 +139,7 @@ const SkipModel = ({ size, rotationEnabled }) => {
         </mesh>
       ))}
 
-      {/* LEFT SVG Sticker */}
+      {/* Left Sticker */}
       <group
         position={[(-width / 2) - stickerOffsetX, stickerY, 0]}
         rotation={[0, Math.PI / 2, 0]}
@@ -149,7 +153,7 @@ const SkipModel = ({ size, rotationEnabled }) => {
         ))}
       </group>
 
-      {/* RIGHT SVG Sticker */}
+      {/* Right Sticker */}
       <group
         position={[(width / 2) + stickerOffsetX, stickerY, 0]}
         rotation={[0, -Math.PI / 2, 0]}
